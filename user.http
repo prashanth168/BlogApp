@@ -1,0 +1,37 @@
+###user api reqs
+
+
+//user creation or registration
+POST  http://localhost:4001/user-api1/user
+Content-Type:application/json
+
+{
+    "userType":"user",
+    "username":"rani",
+    "password":"rani",
+    "email":"rani@gmail.com"
+}
+
+//user login
+###
+POST  http://localhost:4001/user-api1/login
+Content-Type:application/json
+
+{
+    "userType":"user",
+    "username":"ravi",
+    "password":"ravi"
+}
+
+### reading articles of all users
+GET http://localhost:4001/user-api1/articles
+
+###write comment
+
+POST  http://localhost:4001/user-api1/comment/1720903854
+Content-Type:application/json
+
+{
+    "username":"ravi",
+    "comment":"amazing article"
+}

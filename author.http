@@ -1,0 +1,88 @@
+###author api reqs
+
+
+//author creation or registration
+POST  http://localhost:4001/author-api/author
+Content-Type:application/json
+
+{
+    "userType":"author",
+    "username":"vikas",
+    "password":"vikas",
+    "email":"vikas@gmail.com"
+}
+
+//user login
+###
+POST  http://localhost:4001/author-api/login
+Content-Type:application/json
+
+{
+    "userType":"author",
+    "username":"vikas",
+    "password":"vikas"
+}
+
+###write article
+post http://localhost:4001/author-api/articles
+Content-Type:application/json
+
+{
+    "username":"vikas",
+    "title":"JavaScript vs ECMAScript",
+    "body":"some content",
+    "published":"{{$datetime iso8601}}",
+    "updated":"{{$datetime iso8601}}"
+}
+
+###add new atricles
+
+post http://localhost:4001/author-api/article
+Content-Type:application/json
+
+{
+    "articleId":"{{$timestamp}}",
+    "title":"fundamental of JavaScript ",
+    "category":"programming",
+    "content":"java script is a wonderfull language",
+    "dateofCreation":"{{$datetime iso8601}}",
+    "dateofModification":"{{$datetime iso8601}}",
+    "username":"vikas",
+    "comment":[ ],
+    "status":"true"
+}
+
+###update article by author id and date taken from database
+put http://localhost:4001/author-api/article
+Content-Type:application/json
+
+{
+    "articleId":"1720901096",
+    "title":"fundamental of JavaScript  ",
+    "category":"programming",
+    "content":"java script is a wonderfull language json is javascript object notation",
+    "dateofCreation":"2024-07-13T20:04:56.483Z",
+    "dateofModification":"{{$datetime iso8601}}",
+    "username":"vikas",
+    "comment":[ ],
+    "status":"true"
+}
+
+###soft delete an article by articleId taken from database
+put http://localhost:4001/author-api/article/1720901096
+Content-Type:application/json
+
+{
+    "articleId":"1720901096",
+    "title":"fundamental of JavaScript  ",
+    "category":"programming",
+    "content":"java script is a wonderfull language json is javascript object notation",
+    "dateofCreation":"2024-07-13T20:04:56.483Z",
+    "dateofModification":"{{$datetime iso8601}}",
+    "username":"vikas",
+    "comment":[ ],
+    "status":"true"
+}
+
+###get articles of some author by username 
+get http://localhost:4001/author-api/articles/vikas
